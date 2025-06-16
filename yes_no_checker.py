@@ -13,3 +13,6 @@ def yes_no(question): #defines the yes_no question
 while True: #loops the question
     want_instructions = yes_no('Do you want to read the instructions? ')
     print(f"You chose {want_instructions}") 
+    break
+    
+
