@@ -3,8 +3,7 @@ def yes_no(question): #defines the yes_no question
     
         response= input(question).lower() #converts the question to lowercase
         if response == 'yes' or response == 'y': #If the user returns either yes or letter y
-            return 'Yes'
-            
+            return 'Yes'   
         elif response == 'no' or response == 'n': #If the user returns either no or letter n
             return 'No'
             
@@ -16,3 +15,4 @@ while True: #loops the question
     print(f"You chose {want_instructions}") 
     break
     
+
