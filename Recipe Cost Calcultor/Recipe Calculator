@@ -58,7 +58,7 @@ while True:
         change = float(change)
         if change < total_cost: # If change is less than total_cost.
             print('That is not enough money for all the ingredients.')
-            retry = input("Would you like to enter a new amount or exit? Enter 'Retry' to continue or 'Exit' to quit): ").casefold()
+            retry = input("Would you like to enter a new amount or exit? Enter 'Retry' to continue or 'Exit' to quit):").casefold()
             
             if retry == "exit":
                 print('Exiting now. Thank you for using my Recipe Calculator.')
