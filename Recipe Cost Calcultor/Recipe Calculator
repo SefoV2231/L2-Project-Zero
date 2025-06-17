@@ -69,7 +69,7 @@ while True:
             
         else:
             l = change - total_cost
-            print("Here is your change amount of ${:.2f}".format(l))
+            print("Here is your change amount of **${:.2f}**".format(l))
             print("Thank you for using my recipe calculator.")
             break  # Stops the code after the previous print.
     
