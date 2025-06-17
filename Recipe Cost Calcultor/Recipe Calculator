@@ -58,14 +58,16 @@ while True:
         change = float(change)  # Converts change variable to a float number, (1.0) for example.
         if change < total_cost: # If change is less than total_cost.
             print('That is not enough money for all the ingredients.')
-            retry = input("Would you like to enter a new amount or exit? Enter 'Retry' to continue or 'Exit' to quit").casefold()
             
-            if retry == "exit":
-                print('Exiting now. Thank you for using my Recipe Calculator.')
-                sys.exit()
-            elif retry != "retry":  # If user does not enter retry it will print the command below.
-                print("Invalid response. Please enter 'Retry' or 'Exit'")
-                
+            while True:
+                retry = input("Would you like to enter a new amount or exit? Enter 'Retry' to continue or 'Exit' to quit: ").casefold()
+                if retry == "exit":
+                    print('Exiting now. Thank you for using my Recipe Calculator.')
+                    sys.exit()
+                elif retry == "retry":
+                    break
+                elif retry != "retry":  # If user does not enter retry it will print the command below.
+                    print("Invalid response. Please enter 'Retry' or 'Exit'")
             
         else:
             l = change - total_cost  # Assigns this variable to find the change amount after taking away change from TC.
