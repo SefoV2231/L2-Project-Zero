@@ -13,7 +13,7 @@ ingridients = [
 
 def compute_ingr_cost(recipe_ingr):  # defines complete_ingr_cost
     ingr_used = []
-    total_cost = 0
+    total_cost = 0  # Total_cost starts at 0 and adds up after user enters their inputs.
     for item in recipe_ingr:  # Goes through all ingredients.
         while True:  # loops until all are done
             unit_quantity = input(f"Enter the quantity of {item['name']}used: ")
@@ -27,15 +27,15 @@ def compute_ingr_cost(recipe_ingr):  # defines complete_ingr_cost
             try:  # The code can also detect if a number is less than 0
                 unit_quantity = int(unit_quantity)
                 if unit_quantity < 0:
-                    print('Please enter a valid positive number')
+                    print('Please enter a valid positive number!')
                     continue
                 elif unit_quantity > 10:
-                    print('Please enter a value below or equal to 10')
+                    print('Please enter a value below or equal to 10!')
                     continue
                 break  # Breaks the code
             
-            except ValueError:  # If a letter is entered instead of a 
-                print("That is not a valid number")
+            except ValueError:  # If a letter is entered instead of a integer
+                print("That is not a valid number!")
 
         ingr_cost = float(item['purchase_price']) / float(item['quantity_purchased']) * unit_quantity  # Purchase price divided by the quantity of ingredients
         ingr_used.append({"name": item['name'], "ingredient_cost": ingr_cost, "ingredient_quantity": unit_quantity})
@@ -45,30 +45,30 @@ def compute_ingr_cost(recipe_ingr):  # defines complete_ingr_cost
 ingr_used, total_cost = compute_ingr_cost(ingridients)
 
 
-for item in ingr_used:
+for item in ingr_used:  # Loops through the ingredients one-by-one.
     print(f"The cost of {item['name']} is ${item['ingredient_cost']:.2f} for {item['ingredient_quantity']} of this ingredient.")
 print(f"\nThe total cost for all the ingredients for this recipe is ${total_cost:.2f}.")
 
 while True:
-    try:
+    try:  # Allows me to add the except ValueError command.
         change = input('How much money do you have? ')
         if change.casefold() == "exit":
             print('Exiting now. Thanks for using my Recipe Calculator.')
-            sys.exit()
-        change = float(change)
+            sys.exit()  # Exits the code
+        change = float(change)  # Converts change variable to a float number, (1.0) for example.
         if change < total_cost: # If change is less than total_cost.
             print('That is not enough money for all the ingredients.')
-            retry = input("Would you like to enter a new amount or exit? Enter 'Retry' to continue or 'Exit' to quit):").casefold()
+            retry = input("Would you like to enter a new amount or exit? Enter 'Retry' to continue or 'Exit' to quit").casefold()
             
             if retry == "exit":
                 print('Exiting now. Thank you for using my Recipe Calculator.')
                 sys.exit()
-            elif retry != "retry":
+            elif retry != "retry":  # If user does not enter retry it will print the command below.
                 print("Invalid response. Please enter 'Retry' or 'Exit'")
                 
             
         else:
-            l = change - total_cost
+            l = change - total_cost  # Assigns this variable to find the change amount after taking away change from TC.
             print("Here is your change amount of **${:.2f}**".format(l))
             print("Thank you for using my recipe calculator.")
             break  # Stops the code after the previous print.
