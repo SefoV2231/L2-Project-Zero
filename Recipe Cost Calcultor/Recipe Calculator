@@ -22,6 +22,7 @@ def compute_ingr_cost(recipe_ingr):  # defines complete_ingr_cost
                 print('Please enter a valid number.')  # prints this message
                 continue
             elif unit_quantity.casefold() == "exit":
+                print('** See you next time! **')
                 sys.exit()  # exits the code if the word "exit" is entered.
 
             try:  # The code can also detect if a number is less than 0
